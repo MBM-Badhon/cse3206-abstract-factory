@@ -4,7 +4,6 @@
 #include <memory>
 #include <string>
 
-// Product interfaces
 class Window {
 public:
     virtual ~Window() = default;
@@ -17,7 +16,6 @@ public:
     virtual std::string render() = 0;
 };
 
-// Abstract factory interface
 class GUIFactory {
 public:
     virtual ~GUIFactory() = default;
@@ -25,7 +23,6 @@ public:
     virtual std::unique_ptr<Scrollbar> createScrollbar() = 0;
 };
 
-// Windows products
 class WindowsWindow : public Window {
 public:
     std::string render() override;
@@ -36,7 +33,6 @@ public:
     std::string render() override;
 };
 
-// Linux products
 class LinuxWindow : public Window {
 public:
     std::string render() override;
@@ -47,7 +43,6 @@ public:
     std::string render() override;
 };
 
-// Concrete factories
 class WindowsFactory : public GUIFactory {
 public:
     std::unique_ptr<Window> createWindow() override;
